@@ -12,7 +12,7 @@ function App() {
   const [price, setPrice] = useState(0);
 
   const getProducts = () => {
-    fetch("http://localhost:3000")
+    fetch(`${import.meta.env.VITE_API_URL}/`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data.length);
@@ -37,7 +37,7 @@ function App() {
       price: price,
     };
 
-    fetch("http://localhost:3000/add", {
+    fetch(`${import.meta.env.VITE_API_URL}/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function App() {
 
   // Delete product
   const deleteProduct = (id) => {
-    fetch(`http://localhost:3000/delete/${id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/delete/${id}`, {
       method: "DELETE",
     }).then(() => {
       // Refresh to get the new products
