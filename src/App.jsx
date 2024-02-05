@@ -12,7 +12,7 @@ function App() {
   const [price, setPrice] = useState(0);
 
   const getProducts = () => {
-    fetch(`${import.meta.env.VITE_API_URL}/`)
+    fetch(`${import.meta.env.VITE_API_URL}/products`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data.length);
